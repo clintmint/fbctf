@@ -18,6 +18,22 @@ For more information, see the [Admin Guide](https://github.com/facebook/fbctf/wi
 
 # Installation
 
+```shell
+sudo apt update
+sudo apt install ntp unzip
+
+sudo systemctl stop ntp
+sudo ntpd -gq
+sudo systemctl enable ntp --now
+
+cd ~
+git clone https://github.com/clintmint/fbctf.git
+cd fbctf
+
+source extra/lib.sh
+./extra/provision.sh -m prod -s $PWD -c self
+```
+
 The FBCTF platform was designed with flexibility in mind, allowing for different types of installations depending on the needs of the end user. The FBCTF platform can be installed either in Development Mode, or Production Mode.
 
 [Quick Setup Guide](https://github.com/facebook/fbctf/wiki/Quick-Setup-Guide) (_Recommended Installation_)

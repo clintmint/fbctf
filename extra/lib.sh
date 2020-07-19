@@ -52,8 +52,10 @@ function package() {
 }
 
 function install_unison() {
-  cd /
-  dl_pipe "https://www.archlinux.org/packages/extra/x86_64/unison/download/" | sudo tar Jx
+  cd /tmp
+  sudo apt-get install -y zstd
+  curl -L  https://www.archlinux.org/packages/extra/x86_64/unison/download/ --output unison.tar.zst
+  sudo tar -xf unison.tar.zst -C / --use-compress-program=zstd
 }
 
 function repo_osquery() {
